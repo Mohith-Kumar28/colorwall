@@ -5,6 +5,8 @@ export const Tenants: CollectionConfig = {
   slug: "tenants",
   admin: {
     useAsTitle: "slug",
+    // Hide from non-super-admins in admin panel
+    hidden: ({ user }) => !isSuperAdmin(user),
   },
   access: {
     create: ({ req }) => isSuperAdmin(req.user),

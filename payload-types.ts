@@ -254,7 +254,7 @@ export interface Product {
     [k: string]: unknown;
   } | null;
   /**
-   * Price in USD
+   * Price in INR
    */
   price: number;
   category?: (string | null) | Category;

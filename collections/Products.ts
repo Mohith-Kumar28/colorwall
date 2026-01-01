@@ -7,6 +7,7 @@ export const Products: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     description: "Create and manage your products",
+    defaultColumns: ["name", "description", "price", "category", "image", "content", "updatedAt"],
   },
   access: {
     create: ({ req }) => {
@@ -35,7 +36,7 @@ export const Products: CollectionConfig = {
       type: "number",
       required: true,
       admin: {
-        description: "Price in USD",
+        description: "Price in INR",
       },
     },
     {

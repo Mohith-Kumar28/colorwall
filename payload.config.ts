@@ -27,9 +27,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    components: {
-      beforeNavLinks: ["./components/stripe-verify/index"],
-    },
+    // Stripe verification button removed - Stripe is disabled
+    // components: {
+    //   beforeNavLinks: ["./components/stripe-verify/index"],
+    // },
   },
   collections: [
     Users,

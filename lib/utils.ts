@@ -26,8 +26,8 @@ export function formatCurrency(
   options?: Intl.NumberFormatOptions & { locale?: string; currency?: string }
 ) {
   const {
-    locale = "en-US",
-    currency = "USD",
+    locale = "en-IN",
+    currency = "INR",
     maximumFractionDigits = 0,
     ...rest
   } = options ?? {};

@@ -189,7 +189,7 @@ export const checkoutRouter = createTRPCRouter({
         products.docs.map((product) => ({
           quantity: 1,
           price_data: {
-            currency: "usd",
+            currency: "inr",
             unit_amount: product.price * 100, // Stripe works with cents
             product_data: {
               name: product.name,
