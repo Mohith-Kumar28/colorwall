@@ -31,7 +31,17 @@ export default buildConfig({
     // components: {
     //   beforeNavLinks: ["./components/stripe-verify/index"],
     // },
+    components: {
+      graphics: {
+        Logo: "./components/admin/Logo",
+        Icon: "./components/admin/Icon",
+      },
+    },
     theme: "light", // Default to light mode
+    meta: {
+      titleSuffix: " | Colorwall",
+      icons: [{ url: "/favicon.ico" }],
+    },
   },
   collections: [
     Users,
