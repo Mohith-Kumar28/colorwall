@@ -7,133 +7,141 @@ const categories = [
     slug: "all",
   },
   {
-    name: "Business & Money",
-    color: "#FFB347",
-    slug: "business-money",
+    name: "Oil Paintings",
+    color: "#8B4513",
+    slug: "oil-paintings",
     subcategories: [
-      { name: "Accounting", slug: "accounting" },
-      {
-        name: "Entrepreneurship",
-        slug: "entrepreneurship",
-      },
-      { name: "Gigs & Side Projects", slug: "gigs-side-projects" },
-      { name: "Investing", slug: "investing" },
-      { name: "Management & Leadership", slug: "management-leadership" },
-      {
-        name: "Marketing & Sales",
-        slug: "marketing-sales",
-      },
-      { name: "Networking, Careers & Jobs", slug: "networking-careers-jobs" },
-      { name: "Personal Finance", slug: "personal-finance" },
-      { name: "Real Estate", slug: "real-estate" },
+      { name: "Traditional Oil", slug: "traditional-oil" },
+      { name: "Impressionist", slug: "impressionist-oil" },
+      { name: "Realism", slug: "realism-oil" },
+      { name: "Classical Portraits", slug: "classical-portraits" },
+      { name: "Still Life", slug: "still-life-oil" },
     ],
   },
   {
-    name: "Software Development",
-    color: "#7EC8E3",
-    slug: "software-development",
+    name: "Watercolor",
+    color: "#87CEEB",
+    slug: "watercolor",
     subcategories: [
-      { name: "Web Development", slug: "web-development" },
-      { name: "Mobile Development", slug: "mobile-development" },
-      { name: "Game Development", slug: "game-development" },
-      { name: "Programming Languages", slug: "programming-languages" },
-      { name: "DevOps", slug: "devops" },
+      { name: "Landscape Watercolor", slug: "landscape-watercolor" },
+      { name: "Floral Watercolor", slug: "floral-watercolor" },
+      { name: "Abstract Watercolor", slug: "abstract-watercolor" },
+      { name: "Portrait Watercolor", slug: "portrait-watercolor" },
+      { name: "Botanical", slug: "botanical-watercolor" },
     ],
   },
   {
-    name: "Writing & Publishing",
-    color: "#D8B5FF",
-    slug: "writing-publishing",
+    name: "Acrylic Paintings",
+    color: "#FF6B6B",
+    slug: "acrylic-paintings",
     subcategories: [
-      { name: "Fiction", slug: "fiction" },
-      { name: "Non-Fiction", slug: "non-fiction" },
-      { name: "Blogging", slug: "blogging" },
-      { name: "Copywriting", slug: "copywriting" },
-      { name: "Self-Publishing", slug: "self-publishing" },
+      { name: "Modern Acrylic", slug: "modern-acrylic" },
+      { name: "Pop Art", slug: "pop-art" },
+      { name: "Textured Acrylic", slug: "textured-acrylic" },
+      { name: "Palette Knife", slug: "palette-knife" },
+      { name: "Mixed Media", slug: "mixed-media-acrylic" },
+    ],
+  },
+  {
+    name: "Abstract Art",
+    color: "#9B59B6",
+    slug: "abstract-art",
+    subcategories: [
+      { name: "Geometric Abstract", slug: "geometric-abstract" },
+      { name: "Expressionism", slug: "expressionism" },
+      { name: "Minimalist", slug: "minimalist-abstract" },
+      { name: "Color Field", slug: "color-field" },
+      { name: "Fluid Art", slug: "fluid-art" },
+    ],
+  },
+  {
+    name: "Portraits",
+    color: "#E67E22",
+    slug: "portraits",
+    subcategories: [
+      { name: "Commissioned Portraits", slug: "commissioned-portraits" },
+      { name: "Pet Portraits", slug: "pet-portraits" },
+      { name: "Family Portraits", slug: "family-portraits" },
+      { name: "Self Portraits", slug: "self-portraits" },
+      { name: "Celebrity Art", slug: "celebrity-art" },
+    ],
+  },
+  {
+    name: "Landscapes",
+    color: "#27AE60",
+    slug: "landscapes",
+    subcategories: [
+      { name: "Mountain Scenes", slug: "mountain-scenes" },
+      { name: "Seascapes", slug: "seascapes" },
+      { name: "Cityscapes", slug: "cityscapes" },
+      { name: "Rural Landscapes", slug: "rural-landscapes" },
+      { name: "Sunset & Sunrise", slug: "sunset-sunrise" },
+    ],
+  },
+  {
+    name: "Digital Art",
+    color: "#3498DB",
+    slug: "digital-art",
+    subcategories: [
+      { name: "Digital Paintings", slug: "digital-paintings" },
+      { name: "Digital Illustrations", slug: "digital-illustrations" },
+      { name: "NFT Art", slug: "nft-art" },
+      { name: "Concept Art", slug: "concept-art" },
+      { name: "Fan Art", slug: "fan-art" },
+    ],
+  },
+  {
+    name: "Sketches & Drawings",
+    color: "#34495E",
+    slug: "sketches-drawings",
+    subcategories: [
+      { name: "Pencil Drawings", slug: "pencil-drawings" },
+      { name: "Charcoal Art", slug: "charcoal-art" },
+      { name: "Ink Drawings", slug: "ink-drawings" },
+      { name: "Pastel Art", slug: "pastel-art" },
+      { name: "Graphite", slug: "graphite" },
+    ],
+  },
+  {
+    name: "Indian Art",
+    color: "#FF9933",
+    slug: "indian-art",
+    subcategories: [
+      { name: "Madhubani", slug: "madhubani" },
+      { name: "Warli Art", slug: "warli-art" },
+      { name: "Tanjore Paintings", slug: "tanjore-paintings" },
+      { name: "Kalamkari", slug: "kalamkari" },
+      { name: "Miniature Paintings", slug: "miniature-paintings" },
+      { name: "Pattachitra", slug: "pattachitra" },
+    ],
+  },
+  {
+    name: "Contemporary Art",
+    color: "#1ABC9C",
+    slug: "contemporary-art",
+    subcategories: [
+      { name: "Modern Sculptures", slug: "modern-sculptures" },
+      { name: "Installation Art", slug: "installation-art" },
+      { name: "Street Art Style", slug: "street-art-style" },
+      { name: "Surrealism", slug: "surrealism" },
+      { name: "Cubism", slug: "cubism" },
+    ],
+  },
+  {
+    name: "Nature & Wildlife",
+    color: "#2ECC71",
+    slug: "nature-wildlife",
+    subcategories: [
+      { name: "Birds", slug: "birds-art" },
+      { name: "Animals", slug: "animals-art" },
+      { name: "Flowers", slug: "flowers-art" },
+      { name: "Trees & Forests", slug: "trees-forests" },
+      { name: "Marine Life", slug: "marine-life" },
     ],
   },
   {
     name: "Other",
     slug: "other",
-  },
-  {
-    name: "Education",
-    color: "#FFE066",
-    slug: "education",
-    subcategories: [
-      { name: "Online Courses", slug: "online-courses" },
-      { name: "Tutoring", slug: "tutoring" },
-      { name: "Test Preparation", slug: "test-preparation" },
-      { name: "Language Learning", slug: "language-learning" },
-    ],
-  },
-  {
-    name: "Self Improvement",
-    color: "#96E6B3",
-    slug: "self-improvement",
-    subcategories: [
-      { name: "Productivity", slug: "productivity" },
-      { name: "Personal Development", slug: "personal-development" },
-      { name: "Mindfulness", slug: "mindfulness" },
-      { name: "Career Growth", slug: "career-growth" },
-    ],
-  },
-  {
-    name: "Fitness & Health",
-    color: "#FF9AA2",
-    slug: "fitness-health",
-    subcategories: [
-      { name: "Workout Plans", slug: "workout-plans" },
-      { name: "Nutrition", slug: "nutrition" },
-      { name: "Mental Health", slug: "mental-health" },
-      { name: "Yoga", slug: "yoga" },
-    ],
-  },
-  {
-    name: "Design",
-    color: "#B5B9FF",
-    slug: "design",
-    subcategories: [
-      { name: "UI/UX", slug: "ui-ux" },
-      { name: "Graphic Design", slug: "graphic-design" },
-      { name: "3D Modeling", slug: "3d-modeling" },
-      { name: "Typography", slug: "typography" },
-    ],
-  },
-  {
-    name: "Drawing & Painting",
-    color: "#FFCAB0",
-    slug: "drawing-painting",
-    subcategories: [
-      { name: "Watercolor", slug: "watercolor" },
-      { name: "Acrylic", slug: "acrylic" },
-      { name: "Oil", slug: "oil" },
-      { name: "Pastel", slug: "pastel" },
-      { name: "Charcoal", slug: "charcoal" },
-    ],
-  },
-  {
-    name: "Music",
-    color: "#FFD700",
-    slug: "music",
-    subcategories: [
-      { name: "Songwriting", slug: "songwriting" },
-      { name: "Music Production", slug: "music-production" },
-      { name: "Music Theory", slug: "music-theory" },
-      { name: "Music History", slug: "music-history" },
-    ],
-  },
-  {
-    name: "Photography",
-    color: "#FF6B6B",
-    slug: "photography",
-    subcategories: [
-      { name: "Portrait", slug: "portrait" },
-      { name: "Landscape", slug: "landscape" },
-      { name: "Street Photography", slug: "street-photography" },
-      { name: "Nature", slug: "nature" },
-      { name: "Macro", slug: "macro" },
-    ],
   },
 ];
 
@@ -162,7 +170,18 @@ const seed = async () => {
   } else {
     console.log("Admin user already exists, skipping creation");
   }
+  // Delete all existing categories before seeding new ones
+  console.log("Deleting existing categories...");
+  await payload.delete({
+    collection: "categories",
+    where: {
+      id: { exists: true },
+    },
+  });
+  console.log("Existing categories deleted");
 
+  // Create categories
+  console.log("Creating new categories...");
   for (const category of categories) {
     const parentCategory = await payload.create({
       collection: "categories",
