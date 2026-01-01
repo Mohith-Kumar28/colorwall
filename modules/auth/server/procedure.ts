@@ -3,7 +3,7 @@ import { TRPCError } from "@trpc/server";
 import { headers as getHeaders } from "next/headers";
 import { loginSchema, registerSchema } from "../schemas";
 import { generateAuthCookie } from "../utils";
-import { stripe } from "@/lib/stripe";
+import { stripe, isStripeEnabled } from "@/lib/stripe";
 
 export const authRouter = createTRPCRouter({
   session: baseProcedure.query(async ({ ctx }) => {
@@ -35,13 +35,16 @@ export const authRouter = createTRPCRouter({
         });
       }
 
-      const account = await stripe.accounts.create({});
-
-      if (!account) {
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to create Stripe account",
-        });
+      // Stripe account creation is optional
+      let stripeAccountId: string | undefined;
+      if (isStripeEnabled() && stripe) {
+        try {
+          const account = await stripe.accounts.create({});
+          stripeAccountId = account.id;
+        } catch (error) {
+          console.warn("Stripe account creation skipped:", error);
+          // Continue without Stripe - will be set up later
+        }
       }
 
       const tenant = await ctx.payload.create({
@@ -49,7 +52,7 @@ export const authRouter = createTRPCRouter({
         data: {
           name: input.username,
           slug: input.username,
-          stripeAccountId: account.id,
+          stripeAccountId: stripeAccountId || "pending", // Placeholder when Stripe is disabled
         },
       });
 

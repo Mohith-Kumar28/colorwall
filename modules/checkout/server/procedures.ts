@@ -8,12 +8,20 @@ import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { z } from "zod";
 import { CheckoutMetadata, ProductMetadata } from "../types";
-import { stripe } from "@/lib/stripe";
+import { stripe, isStripeEnabled } from "@/lib/stripe";
 import { PLATFORM_FEE_PERCENTAGE } from "@/constants";
 import { generateTenantUrl } from "@/lib/utils";
 
 export const checkoutRouter = createTRPCRouter({
   verify: protectedProcedure.mutation(async ({ ctx }) => {
+    // Check if Stripe is enabled
+    if (!isStripeEnabled() || !stripe) {
+      throw new TRPCError({
+        code: "SERVICE_UNAVAILABLE",
+        message: "Payment processing is not configured. Please contact support.",
+      });
+    }
+
     const user = await ctx.payload.findByID({
       collection: "users",
       id: ctx.session.user.id,
@@ -110,6 +118,14 @@ export const checkoutRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
+      // Check if Stripe is enabled
+      if (!isStripeEnabled() || !stripe) {
+        throw new TRPCError({
+          code: "SERVICE_UNAVAILABLE",
+          message: "Payment processing is not configured. Please contact support.",
+        });
+      }
+
       const products = await ctx.payload.find({
         collection: "products",
         depth: 2,

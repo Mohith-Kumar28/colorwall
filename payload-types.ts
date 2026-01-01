@@ -229,7 +229,7 @@ export interface Category {
   createdAt: string;
 }
 /**
- * You must verify your account before creating products
+ * Create and manage your products
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".

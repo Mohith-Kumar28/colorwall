@@ -3,10 +3,18 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { NextResponse } from "next/server";
 
-import { stripe } from "@/lib/stripe";
+import { stripe, isStripeEnabled } from "@/lib/stripe";
 import { ExpandedLineItem } from "@/modules/checkout/types";
 
 export async function POST(req: Request) {
+  // Return early if Stripe is not configured
+  if (!isStripeEnabled() || !stripe) {
+    return NextResponse.json(
+      { message: "Stripe is not configured" },
+      { status: 503 }
+    );
+  }
+
   let event: Stripe.Event;
 
   try {

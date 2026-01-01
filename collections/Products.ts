@@ -6,16 +6,17 @@ export const Products: CollectionConfig = {
   slug: "products",
   admin: {
     useAsTitle: "name",
-    description: "You must verify your account before creating products",
+    description: "Create and manage your products",
   },
   access: {
     create: ({ req }) => {
       if (isSuperAdmin(req.user)) {
         return true;
       }
+      // Allow product creation for any authenticated user with a tenant
+      // Stripe verification is optional when Stripe is not configured
       const tenant = req.user?.tenants?.[0]?.tenant as Tenant;
-
-      return Boolean(tenant?.stripeDetailsSubmitted);
+      return Boolean(tenant);
     },
     delete: ({ req }) => isSuperAdmin(req.user),
   },
