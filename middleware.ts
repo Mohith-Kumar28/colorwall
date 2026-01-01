@@ -7,7 +7,7 @@ export const config = {
 export default async function middleware(req: NextRequest) {
   const url = req.nextUrl;
 
-  // Extract the hostname (e.g. `fabio.sellio.com`)
+  // Extract the hostname (e.g. `fabio.colorwall.com`)
   const hostname = req.headers.get("host") || "";
 
   const rootDomain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || "";

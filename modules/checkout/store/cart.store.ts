@@ -65,7 +65,7 @@ export const useCartStore = create<CartState>()(
         }),
     }),
     {
-      name: "sellio-cart",
+      name: "colorwall-cart",
       storage: createJSONStorage(() => localStorage),
     }
   )

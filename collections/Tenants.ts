@@ -31,7 +31,7 @@ export const Tenants: CollectionConfig = {
       label: "Store slug",
       admin: {
         description:
-          "This is the subdomain of the store (e.g [slug].sellio.com)",
+          "This is the subdomain of the store (e.g [slug].colorwall.com)",
       },
       access: {
         update: ({ req }) => isSuperAdmin(req.user),

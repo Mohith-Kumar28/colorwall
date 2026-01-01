@@ -78,7 +78,7 @@ const SignInView = () => {
                 <span
                   className={cn("text-2xl font-semibold", poppins.className)}
                 >
-                  sellio
+                  colorwall
                 </span>
               </Link>
               <Button
@@ -91,7 +91,7 @@ const SignInView = () => {
                 </Link>
               </Button>
             </div>
-            <h1 className="text-4xl font-medium">Welcome back in Sellio!</h1>
+            <h1 className="text-4xl font-medium">Welcome back to Colorwall!</h1>
 
             <FormField
               control={form.control}

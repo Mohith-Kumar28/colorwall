@@ -175,7 +175,7 @@ export interface Tenant {
    */
   name: string;
   /**
-   * This is the subdomain of the store (e.g [slug].sellio.com)
+   * This is the subdomain of the store (e.g [slug].colorwall.com)
    */
   slug: string;
   image?: (string | null) | Media;

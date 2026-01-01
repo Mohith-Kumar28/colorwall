@@ -77,5 +77,5 @@ export default buildConfig({
         ]
       : []),
   ],
-  cookiePrefix: "sellio",
+  cookiePrefix: "colorwall",
 });

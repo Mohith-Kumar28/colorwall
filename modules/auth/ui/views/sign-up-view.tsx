@@ -78,7 +78,7 @@ const SignUpView = () => {
                 <span
                   className={cn("text-2xl font-semibold", poppins.className)}
                 >
-                  sellio
+                  colorwall
                 </span>
               </Link>
               <Button
@@ -92,7 +92,7 @@ const SignUpView = () => {
               </Button>
             </div>
             <h1 className="text-4xl font-medium">
-              Join over 1,489 creators earning money on Sellio.
+              Join over 1,489 creators earning money on Colorwall.
             </h1>
 
             <FormField
@@ -107,7 +107,7 @@ const SignUpView = () => {
                   <FormDescription className={showPreview ? "block" : "hidden"}>
                     Your store will be available at&nbsp;
                     {/* TODO: use proper method to generate URL */}
-                    <strong>{username}</strong>.sellio.io
+                    <strong>{username}</strong>.colorwall.com
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
