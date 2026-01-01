@@ -74,18 +74,14 @@ export default buildConfig({
       },
       userHasAccessToAllTenants: (user) => isSuperAdmin(user),
     }),
-    // Only enable Vercel Blob storage when a valid token is provided
-    ...(process.env.BLOB_READ_WRITE_TOKEN?.startsWith("vercel_blob_rw_")
-      ? [
-          vercelBlobStorage({
-            enabled: true,
-            collections: {
-              media: true,
-            },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-          }),
-        ]
-      : []),
+    // Vercel Blob storage - enabled only when valid token is provided
+    vercelBlobStorage({
+      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN?.startsWith("vercel_blob_rw_")),
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || "",
+    }),
   ],
   cookiePrefix: "colorwall",
 });
