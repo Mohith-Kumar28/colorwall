@@ -31,6 +31,7 @@ export default buildConfig({
     // components: {
     //   beforeNavLinks: ["./components/stripe-verify/index"],
     // },
+    theme: "light", // Default to light mode
   },
   collections: [
     Users,
