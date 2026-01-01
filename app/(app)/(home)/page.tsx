@@ -22,6 +22,7 @@ const HomePage = async ({ searchParams }: Props) => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      
       <ProductListView />
     </HydrationBoundary>
   );
