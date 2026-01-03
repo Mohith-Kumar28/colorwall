@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
-import { ShoppingCartIcon } from "lucide-react";
+import { HomeIcon, ShoppingCartIcon } from "lucide-react";
 
 const CheckoutButton = dynamic(
   () => import("@/modules/checkout/components/CheckoutButton"),
@@ -28,21 +28,36 @@ const TenantNavbar = ({ slug }: { slug: string }) => {
   return (
     <nav className="h-20 border-b font-medium bg-white">
       <div className="max-w-(--breakpoint-xl) mx-auto flex justify-between items-center h-full px-4 lg:px-12">
-        <Link
-          href={generateTenantUrl(slug)}
-          className="flex items-center gap-2"
-        >
-          {data.image?.url && (
-            <Image
-              src={data.image.url}
-              alt={data.name}
-              width={32}
-              height={32}
-              className="rounded-full border shrink-0 size-[32px] object-cover"
-            />
-          )}
-          <p className="text-xl">{data.name}</p>
-        </Link>
+        <div className="flex items-center gap-4">
+          {/* Home link */}
+          <Link
+            href="/"
+            className="flex items-center gap-1 text-muted-foreground hover:text-black transition-colors"
+            title="Go to Colorwall home"
+          >
+            <HomeIcon className="size-5" />
+            <span className="hidden sm:inline text-sm">Home</span>
+          </Link>
+          
+          <div className="h-6 w-px bg-border" />
+          
+          {/* Tenant link */}
+          <Link
+            href={generateTenantUrl(slug)}
+            className="flex items-center gap-2"
+          >
+            {data.image?.url && (
+              <Image
+                src={data.image.url}
+                alt={data.name}
+                width={32}
+                height={32}
+                className="rounded-full border shrink-0 size-[32px] object-cover"
+              />
+            )}
+            <p className="text-xl">{data.name}</p>
+          </Link>
+        </div>
         <CheckoutButton tenantSlug={slug} hideIfEmpty />
       </div>
     </nav>
