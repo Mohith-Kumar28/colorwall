@@ -47,12 +47,14 @@ const ProductView = ({ productId, tenantSlug }: Props) => {
   return (
     <div className="px-4 lg:px-12 py-10">
       <div className="border rounded-sm bg-white overflow-hidden">
-        <div className="relative aspect-[3.9] border-b">
+        <div className="relative aspect-[3.9] border-b bg-neutral-100">
           <Image
-            src={data.cover?.url || "/placeholder.png"}
-            alt={data.cover?.alt || data.name}
+            src={data.image?.url || data.cover?.url || "/placeholder.png"}
+            alt={data.image?.alt || data.cover?.alt || data.name}
             fill
-            className="object-cover"
+            sizes="100vw"
+            className="object-contain"
+            priority
           />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-6">

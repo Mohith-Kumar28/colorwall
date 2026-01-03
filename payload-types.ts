@@ -302,7 +302,7 @@ export interface Product {
   category?: (string | null) | Category;
   tags?: (string | Tag)[] | null;
   /**
-   * High-resolution product image for poster printing. Minimum 5400x7200px (18x24" at 300 DPI).
+   * High-resolution product image for poster printing. Minimum 3824x5032px (Custom Poster).
    */
   image?: (string | null) | ProductMedia;
   cover?: (string | null) | Media;
