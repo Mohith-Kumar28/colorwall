@@ -1,0 +1,9 @@
+/* Increase the width of toast notifications to show longer messages */
+.Toastify__toast-container {
+  width: 450px !important;
+  max-width: 90vw !important;
+}
+
+.Toastify__toast {
+  min-width: 400px !important;
+}

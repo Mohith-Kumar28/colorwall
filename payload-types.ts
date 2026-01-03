@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    'product-media': ProductMedia;
     categories: Category;
     products: Product;
     tags: Tag;
@@ -88,6 +89,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'product-media': ProductMediaSelect<false> | ProductMediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
@@ -211,6 +213,46 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * High-resolution product images for poster printing. Minimum resolution: 3824x5032px (Custom Poster at 300 DPI)
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-media".
+ */
+export interface ProductMedia {
+  id: string;
+  tenant?: (string | null) | Tenant;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    preview?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
@@ -259,7 +301,10 @@ export interface Product {
   price: number;
   category?: (string | null) | Category;
   tags?: (string | Tag)[] | null;
-  image?: (string | null) | Media;
+  /**
+   * High-resolution product image for poster printing. Minimum 5400x7200px (18x24" at 300 DPI).
+   */
+  image?: (string | null) | ProductMedia;
   cover?: (string | null) | Media;
   refundPolicy?: ('30-day' | '14-day' | '7-day' | '3-day' | '1-day' | 'no-refunds') | null;
   /**
@@ -366,6 +411,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'product-media';
+        value: string | ProductMedia;
       } | null)
     | ({
         relationTo: 'categories';
@@ -481,6 +530,49 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-media_select".
+ */
+export interface ProductMediaSelect<T extends boolean = true> {
+  tenant?: T;
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        preview?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

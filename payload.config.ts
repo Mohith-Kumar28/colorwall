@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+import { ProductMedia } from "./collections/ProductMedia";
 import { Categories } from "./collections/Categories";
 import { Products } from "./collections/Products";
 import { Tags } from "./collections/Tags";
@@ -46,6 +47,7 @@ export default buildConfig({
   collections: [
     Users,
     Media,
+    ProductMedia,
     Categories,
     Products,
     Tags,
@@ -68,6 +70,7 @@ export default buildConfig({
       collections: {
         products: {},
         media: {},
+        "product-media": {},
       },
       tenantsArrayField: {
         includeDefaultField: false,
@@ -79,6 +82,7 @@ export default buildConfig({
       enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN?.startsWith("vercel_blob_rw_")),
       collections: {
         media: true,
+        "product-media": true,
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || "",
     }),

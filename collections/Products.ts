@@ -1,6 +1,7 @@
 import { isSuperAdmin } from "@/lib/access";
 import type { Tenant } from "@/payload-types";
 import type { CollectionConfig } from "payload";
+import { MIN_WIDTH, MIN_HEIGHT, currentPreset } from "./ProductMedia";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -51,7 +52,14 @@ export const Products: CollectionConfig = {
       relationTo: "tags",
       hasMany: true,
     },
-    { name: "image", type: "upload", relationTo: "media" },
+    {
+      name: "image",
+      type: "upload",
+      relationTo: "product-media",
+      admin: {
+        description: `High-resolution product image for poster printing. Minimum ${MIN_WIDTH}x${MIN_HEIGHT}px (${currentPreset.label}).`,
+      },
+    },
     { name: "cover", type: "upload", relationTo: "media" },
     {
       name: "refundPolicy",
