@@ -37,12 +37,14 @@ export default buildConfig({
         Logo: "./components/admin/Logo",
         Icon: "./components/admin/Icon",
       },
+      afterLogin: ["./components/admin/BeforeLogin"],
     },
     theme: "light", // Default to light mode
     meta: {
       titleSuffix: " | Colorwall",
       icons: [{ url: "/favicon.ico" }],
     },
+
   },
   collections: [
     Users,

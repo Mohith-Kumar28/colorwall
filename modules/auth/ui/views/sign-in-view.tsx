@@ -44,7 +44,7 @@ const SignInView = () => {
     trpc.auth.login.mutationOptions({
       onSuccess: async () => {
         await queryClient.invalidateQueries(trpc.auth.session.queryOptions());
-        router.push(target);
+        router.push("/admin");
       },
       onError: (error) => {
         toast.error(error.message);
@@ -92,6 +92,15 @@ const SignInView = () => {
               </Button>
             </div>
             <h1 className="text-4xl font-medium">Welcome back to Colorwall!</h1>
+            <Button
+              asChild
+              variant="outline"
+              className="w-fit border-2"
+            >
+              <Link href="/">
+                ← Back to Homepage
+              </Link>
+            </Button>
 
             <FormField
               control={form.control}

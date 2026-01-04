@@ -38,7 +38,7 @@ const SignUpView = () => {
     trpc.auth.register.mutationOptions({
       onSuccess: async () => {
         await queryClient.invalidateQueries(trpc.auth.session.queryOptions());
-        router.push("/");
+        router.push("/admin");
       },
       onError: (error) => {
         toast.error(error.message);

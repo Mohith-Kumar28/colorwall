@@ -21,18 +21,15 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <div>
-      {/* Hero Section - Full Width with Gradient */}
-      <section className="relative bg-gradient-to-br from-pink-50 via-white to-purple-50 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(236,72,153,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
-        
+      {/* Hero Section - Pastel Background */}
+      <section className="relative bg-white py-24">
         <div className="max-w-5xl mx-auto px-4 text-center relative">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 rounded-full text-pink-700 font-medium text-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 border border-pink-200 rounded-full text-pink-700 font-medium text-sm mb-8">
             <SparklesIcon className="size-4" />
             <span>Curated Art Marketplace</span>
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-pink-800 to-purple-800 bg-clip-text text-transparent">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-8 text-black">
             Bringing Art to Your Walls
           </h1>
           
@@ -42,24 +39,24 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-black text-white">
+      {/* Stats Section - Pastel Background */}
+      <section className="py-16 bg-neutral-100 border-y">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-pink-400">500+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">500+</p>
               <p className="text-muted-foreground mt-2">Artists</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-pink-400">10K+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">10K+</p>
               <p className="text-muted-foreground mt-2">Art Prints</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-pink-400">50+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">50+</p>
               <p className="text-muted-foreground mt-2">Countries</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-pink-400">98%</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">98%</p>
               <p className="text-muted-foreground mt-2">Happy Customers</p>
             </div>
           </div>
@@ -86,17 +83,18 @@ const AboutPage = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-pink-200 to-purple-200 rounded-3xl" />
-              <div className="absolute inset-4 bg-gradient-to-br from-pink-400 to-purple-400 rounded-2xl flex items-center justify-center">
-                <PaletteIcon className="size-32 text-white opacity-50" />
-              </div>
+              <Card className="overflow-hidden border-2">
+                <div className="aspect-square bg-pink-50 flex items-center justify-center">
+                  <PaletteIcon className="size-32 text-pink-300" strokeWidth={1.5} />
+                </div>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 bg-neutral-50">
+      <section className="py-24 bg-white border-y">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Mission</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
@@ -104,35 +102,47 @@ const AboutPage = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white rounded-2xl border shadow-sm">
-              <div className="size-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <GlobeIcon className="size-8 text-pink-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Global Reach</h3>
-              <p className="text-muted-foreground">
-                Connecting artists and collectors across 50+ countries worldwide.
-              </p>
-            </div>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="size-16 bg-pink-100 border-2 border-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <GlobeIcon className="size-8 text-pink-600" strokeWidth={2} />
+                </div>
+                <CardTitle className="text-xl">Global Reach</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Connecting artists and collectors across 50+ countries worldwide.
+                </p>
+              </CardContent>
+            </Card>
             
-            <div className="p-8 bg-white rounded-2xl border shadow-sm">
-              <div className="size-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <AwardIcon className="size-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Premium Quality</h3>
-              <p className="text-muted-foreground">
-                Museum-grade prints using archival inks and premium papers.
-              </p>
-            </div>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="size-16 bg-blue-100 border-2 border-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <AwardIcon className="size-8 text-blue-600" strokeWidth={2} />
+                </div>
+                <CardTitle className="text-xl">Premium Quality</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Museum-grade prints using archival inks and premium papers.
+                </p>
+              </CardContent>
+            </Card>
             
-            <div className="p-8 bg-white rounded-2xl border shadow-sm">
-              <div className="size-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TruckIcon className="size-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Fast Delivery</h3>
-              <p className="text-muted-foreground">
-                Carefully packaged and shipped to your doorstep in days.
-              </p>
-            </div>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="size-16 bg-green-100 border-2 border-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <TruckIcon className="size-8 text-green-600" strokeWidth={2} />
+                </div>
+                <CardTitle className="text-xl">Fast Delivery</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Carefully packaged and shipped to your doorstep in days.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -146,10 +156,10 @@ const AboutPage = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-2 hover:border-pink-300 transition-colors">
+            <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-start gap-4">
-                <div className="p-3 bg-pink-100 rounded-xl">
-                  <PaletteIcon className="size-6 text-pink-600" />
+                <div className="p-3 bg-pink-100 border-2 border-pink-200 rounded-xl">
+                  <PaletteIcon className="size-6 text-pink-600" strokeWidth={2} />
                 </div>
                 <div>
                   <CardTitle className="text-xl">Artist-First Approach</CardTitle>
@@ -162,10 +172,10 @@ const AboutPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-blue-300 transition-colors">
+            <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-start gap-4">
-                <div className="p-3 bg-blue-100 rounded-xl">
-                  <ShieldCheckIcon className="size-6 text-blue-600" />
+                <div className="p-3 bg-blue-100 border-2 border-blue-200 rounded-xl">
+                  <ShieldCheckIcon className="size-6 text-blue-600" strokeWidth={2} />
                 </div>
                 <div>
                   <CardTitle className="text-xl">Uncompromising Quality</CardTitle>
@@ -178,10 +188,10 @@ const AboutPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-green-300 transition-colors">
+            <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-start gap-4">
-                <div className="p-3 bg-green-100 rounded-xl">
-                  <HeartIcon className="size-6 text-green-600" />
+                <div className="p-3 bg-green-100 border-2 border-green-200 rounded-xl">
+                  <HeartIcon className="size-6 text-green-600" strokeWidth={2} />
                 </div>
                 <div>
                   <CardTitle className="text-xl">Genuine Passion</CardTitle>
@@ -194,10 +204,10 @@ const AboutPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-purple-300 transition-colors">
+            <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-start gap-4">
-                <div className="p-3 bg-purple-100 rounded-xl">
-                  <UsersIcon className="size-6 text-purple-600" />
+                <div className="p-3 bg-purple-100 border-2 border-purple-200 rounded-xl">
+                  <UsersIcon className="size-6 text-purple-600" strokeWidth={2} />
                 </div>
                 <div>
                   <CardTitle className="text-xl">Community Driven</CardTitle>
@@ -213,23 +223,23 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-pink-400 to-purple-500">
+      {/* CTA Section - Pastel Pink Background */}
+      <section className="py-24 bg-pink-50 border-y">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
             Ready to discover amazing art?
           </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Browse our curated collection of prints from talented artists around the world.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary" className="bg-white text-black hover:bg-white/90 text-lg px-8">
+            <Button asChild size="lg" className="bg-pink-400 border-2 border-black text-black hover:bg-pink-500 text-lg px-8">
               <Link href="/">
                 Browse Shop
                 <ArrowRightIcon className="ml-2 size-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
+            <Button asChild size="lg" variant="outline" className="border-2 border-black hover:bg-black hover:text-white text-lg px-8">
               <Link href="/sign-up">
                 Become an Artist
               </Link>

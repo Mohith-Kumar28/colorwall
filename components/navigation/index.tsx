@@ -67,15 +67,22 @@ const Navbar = () => {
       />
 
       <div className="items-center gap-4 hidden lg:flex">
-        {navbarItems.map((item) => (
-          <NavbarItem
-            key={item.href}
-            href={item.href}
-            isActive={pathname === item.href}
-          >
-            {item.children}
-          </NavbarItem>
-        ))}
+        {navbarItems.map((item) => {
+          // For root path, match exactly. For other paths, check if pathname starts with it
+          const isActive = item.href === "/" 
+            ? pathname === "/" 
+            : pathname.startsWith(item.href);
+          
+          return (
+            <NavbarItem
+              key={item.href}
+              href={item.href}
+              isActive={isActive}
+            >
+              {item.children}
+            </NavbarItem>
+          );
+        })}
       </div>
 
       {session.data?.user ? (
