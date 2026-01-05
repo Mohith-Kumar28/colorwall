@@ -52,8 +52,8 @@ const AboutPage = () => {
               <p className="text-muted-foreground mt-2">Art Prints</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-black">50+</p>
-              <p className="text-muted-foreground mt-2">Countries</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">2000+</p>
+              <p className="text-muted-foreground mt-2">Pincodes</p>
             </div>
             <div>
               <p className="text-4xl lg:text-5xl font-bold text-black">98%</p>
