@@ -25,16 +25,16 @@ interface NavbarItemProps {
 
 const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
   return (
-    <Button
-      asChild
-      variant="outline"
+    <Link
+      href={href}
       className={cn(
-        "bg-transparent hover:bg-transparent rounded-full hover:border-primary border-transparent px-3.5 text-lg",
+        "inline-flex items-center justify-center px-4 py-2 rounded-full text-lg font-medium transition-colors",
+        "hover:bg-gray-100",
         isActive && "bg-black text-white hover:bg-black hover:text-white"
       )}
     >
-      <Link href={href}>{children}</Link>
-    </Button>
+      {children}
+    </Link>
   );
 };
 
@@ -52,6 +52,9 @@ const Navbar = () => {
 
   const session = useQuery(trpc.auth.session.queryOptions());
 
+  // Check if current path is a shop/category page (home or any category)
+  const isShopPage = pathname === "/" || (!pathname.startsWith("/about") && !pathname.startsWith("/contact") && !pathname.startsWith("/sign") && !pathname.startsWith("/admin") && !pathname.startsWith("/pricing"));
+
   return (
     <nav className="h-20 flex border-b justify-between font-medium bg-white">
       <Link href="/" className="pl-6 flex items-center">
@@ -68,10 +71,15 @@ const Navbar = () => {
 
       <div className="items-center gap-4 hidden lg:flex">
         {navbarItems.map((item) => {
-          // For root path, match exactly. For other paths, check if pathname starts with it
-          const isActive = item.href === "/" 
-            ? pathname === "/" 
-            : pathname.startsWith(item.href);
+          let isActive = false;
+          
+          if (item.href === "/") {
+            // Shop is active for home and category pages
+            isActive = isShopPage;
+          } else {
+            // Other items: check if pathname starts with href
+            isActive = pathname.startsWith(item.href);
+          }
           
           return (
             <NavbarItem
