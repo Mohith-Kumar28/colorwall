@@ -183,7 +183,7 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Every print is produced using premium materials and quality printing techniques. We require high-resolution uploads to ensure stunning results that last a lifetime.
+                  Every print is produced using premium materials and quality printing techniques.
                 </p>
               </CardContent>
             </Card>
