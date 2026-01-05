@@ -40,10 +40,10 @@ const ContactPage = () => {
             </CardHeader>
             <CardContent>
               <a 
-                href="mailto:hello@colorwall.art" 
+                href="mailto:hello@colorwall.in" 
                 className="text-pink-600 hover:underline font-medium"
               >
-                hello@colorwall.art
+                hello@colorwall.in
               </a>
             </CardContent>
           </Card>
@@ -75,7 +75,7 @@ const ContactPage = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="font-medium">Bangalore, India</p>
+              <p className="font-medium">Kochi, India</p>
               <p className="text-muted-foreground">Remote-first team</p>
             </CardContent>
           </Card>

@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "About | Colorwall",
-  description: "Discover the story behind Colorwall - a marketplace for high-quality art prints and posters.",
+  description: "An online art marketplace built to empower artists and connect them with art lovers around the world.",
 };
 
 const AboutPage = () => {
@@ -26,15 +26,15 @@ const AboutPage = () => {
         <div className="max-w-5xl mx-auto px-4 text-center relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 border border-pink-200 rounded-full text-pink-700 font-medium text-sm mb-8">
             <SparklesIcon className="size-4" />
-            <span>Curated Art Marketplace</span>
+            <span>Empowering Artists Worldwide</span>
           </div>
           
           <h1 className="text-5xl lg:text-6xl font-bold mb-8 text-black">
-            Bringing Art to Your Walls
+            About Us
           </h1>
           
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Colorwall is where passionate artists meet discerning collectors. We believe that beautiful art should be accessible to everyone, and that every artist deserves a platform to share their vision with the world.
+            We are an online art marketplace built to empower artists and connect them with art lovers around the world. Our platform is a space where creativity is valued, originality is celebrated, and artists can confidently showcase and sell their work.
           </p>
         </div>
       </section>
@@ -68,16 +68,16 @@ const AboutPage = () => {
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Story</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Belief</h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  We started Colorwall with a simple belief: <span className="text-foreground font-medium">everyone deserves to have beautiful art in their home or workspace</span>. But finding quality prints from independent artists shouldn&apos;t be complicated or expensive.
+                  We believe <span className="text-foreground font-medium">every artist deserves visibility and fair opportunities</span>. Whether you are an emerging creator or an established professional, our platform helps you reach a global audience—without the traditional barriers of galleries or middlemen.
                 </p>
                 <p>
-                  Too often, talented artists struggle to reach their audience, while art lovers settle for mass-produced prints that lack soul. We saw an opportunity to bridge this gap.
+                  We support a wide range of artistic expressions, creating a space where talent can thrive and connect directly with those who appreciate it.
                 </p>
                 <p>
-                  Today, Colorwall connects thousands of artists with art enthusiasts around the world. Every print on our platform is carefully curated and produced at the highest quality standards, ensuring your walls get the masterpiece they deserve.
+                  For collectors and buyers, we offer a curated selection of authentic artworks sourced directly from artists. Every purchase supports independent talent, creative passion, and sustainable art practices.
                 </p>
               </div>
             </div>
@@ -107,11 +107,11 @@ const AboutPage = () => {
                 <div className="size-16 bg-pink-100 border-2 border-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <GlobeIcon className="size-8 text-pink-600" strokeWidth={2} />
                 </div>
-                <CardTitle className="text-xl">Global Reach</CardTitle>
+                <CardTitle className="text-xl">All India Reach</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Connecting artists and collectors across 50+ countries worldwide.
+                  Connecting artists and collectors across every corner of India.
                 </p>
               </CardContent>
             </Card>
@@ -125,7 +125,7 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Museum-grade prints using archival inks and premium papers.
+                  High-quality prints crafted with care using premium materials.
                 </p>
               </CardContent>
             </Card>
@@ -157,7 +157,7 @@ const AboutPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="border-2 hover:shadow-lg transition-shadow">
-              <CardHeader className="flex flex-row items-start gap-4">
+              <CardHeader className="flex flex-row items-center gap-4">
                 <div className="p-3 bg-pink-100 border-2 border-pink-200 rounded-xl">
                   <PaletteIcon className="size-6 text-pink-600" strokeWidth={2} />
                 </div>
@@ -167,13 +167,13 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Artists keep 70% of every sale. We handle printing, packaging, shipping, and customer service so they can focus on creating. Our platform is designed to amplify artist voices, not diminish them.
+                  We handle the logistics so artists can focus on creating. Our platform is designed to amplify artist voices, not diminish them, giving creators the visibility they deserve.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 hover:shadow-lg transition-shadow">
-              <CardHeader className="flex flex-row items-start gap-4">
+              <CardHeader className="flex flex-row items-center gap-4">
                 <div className="p-3 bg-blue-100 border-2 border-blue-200 rounded-xl">
                   <ShieldCheckIcon className="size-6 text-blue-600" strokeWidth={2} />
                 </div>
@@ -183,13 +183,13 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Every print is produced using premium materials and museum-grade printing techniques. We require high-resolution uploads to ensure stunning results that last a lifetime.
+                  Every print is produced using premium materials and quality printing techniques. We require high-resolution uploads to ensure stunning results that last a lifetime.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 hover:shadow-lg transition-shadow">
-              <CardHeader className="flex flex-row items-start gap-4">
+              <CardHeader className="flex flex-row items-center gap-4">
                 <div className="p-3 bg-green-100 border-2 border-green-200 rounded-xl">
                   <HeartIcon className="size-6 text-green-600" strokeWidth={2} />
                 </div>
@@ -205,7 +205,7 @@ const AboutPage = () => {
             </Card>
 
             <Card className="border-2 hover:shadow-lg transition-shadow">
-              <CardHeader className="flex flex-row items-start gap-4">
+              <CardHeader className="flex flex-row items-center gap-4">
                 <div className="p-3 bg-purple-100 border-2 border-purple-200 rounded-xl">
                   <UsersIcon className="size-6 text-purple-600" strokeWidth={2} />
                 </div>
