@@ -12,6 +12,7 @@ import {
   ArrowRightIcon
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "About | Colorwall",
@@ -48,11 +49,11 @@ const AboutPage = () => {
               <p className="text-muted-foreground mt-2">Artists</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-black">10K+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">10,000+</p>
               <p className="text-muted-foreground mt-2">Art Prints</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-black">2000+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-black">10,000+</p>
               <p className="text-muted-foreground mt-2">Pincodes</p>
             </div>
             <div>
@@ -84,8 +85,16 @@ const AboutPage = () => {
             
             <div className="relative">
               <Card className="overflow-hidden border-2">
-                <div className="aspect-square bg-pink-50 flex items-center justify-center">
-                  <PaletteIcon className="size-32 text-pink-300" strokeWidth={1.5} />
+                <div className="relative">
+                  <Image
+                    src="/our-brief.png"
+                    alt="Colorwall - Empowering artists worldwide"
+                    width={600}
+                    height={700}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
                 </div>
               </Card>
             </div>
