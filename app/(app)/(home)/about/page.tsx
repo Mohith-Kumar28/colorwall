@@ -71,7 +71,7 @@ const AboutPage = () => {
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Belief</h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  We believe <span className="text-foreground font-medium">every artist deserves visibility and fair opportunities</span>. Whether you are an emerging creator or an established professional, our platform helps you reach a global audience—without the traditional barriers of galleries or middlemen.
+                  We believe <span className="text-foreground font-medium">every artist deserves visibility and fair opportunities</span>. Whether you are an emerging creator or an established professional, our platform helps you reach a global audience, without the traditional barriers of galleries or middlemen.
                 </p>
                 <p>
                   We support a wide range of artistic expressions, creating a space where talent can thrive and connect directly with those who appreciate it.
@@ -199,7 +199,7 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Our team is made up of art lovers, collectors, and creators. We don&apos;t just sell art—we live it. Every curation decision is made with love and intention.
+                  Our team is made up of art lovers, collectors, and creators. We don&apos;t just sell art, we live it. Every curation decision is made with love and intention.
                 </p>
               </CardContent>
             </Card>
@@ -215,7 +215,7 @@ const AboutPage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We&apos;re building more than a marketplace—we&apos;re fostering a community where artists and art lovers inspire each other. Your feedback shapes our platform.
+                  We&apos;re building more than a marketplace, we&apos;re fostering a community where artists and art lovers inspire each other. Your feedback shapes our platform.
                 </p>
               </CardContent>
             </Card>
