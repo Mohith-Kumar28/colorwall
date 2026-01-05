@@ -30,14 +30,14 @@ const TenantNavbar = ({ slug }: { slug: string }) => {
       <div className="max-w-(--breakpoint-xl) mx-auto flex justify-between items-center h-full px-4 lg:px-12">
         <div className="flex items-center gap-4">
           {/* Home link */}
-          <Link
-            href="/"
+          <a
+            href={`https://${process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'colorwall.in'}`}
             className="flex items-center gap-1 text-muted-foreground hover:text-black transition-colors"
             title="Go to Colorwall home"
           >
             <HomeIcon className="size-5" />
             <span className="hidden sm:inline text-sm">Home</span>
-          </Link>
+          </a>
           
           <div className="h-6 w-px bg-border" />
           
