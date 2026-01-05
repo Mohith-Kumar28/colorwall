@@ -76,7 +76,7 @@ const ContactPage = () => {
             </CardHeader>
             <CardContent>
               <p className="font-medium">Kochi, India</p>
-              <p className="text-muted-foreground">Remote-first team</p>
+            
             </CardContent>
           </Card>
         </div>
@@ -164,7 +164,7 @@ const ContactPage = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                You&apos;ll receive a tracking link via email once your order ships. You can also check your order status in your account dashboard.
+                You&apos;ll receive a tracking link via email once your order ships.
               </p>
             </CardContent>
           </Card>
@@ -175,7 +175,7 @@ const ContactPage = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Yes! Sign up as a seller and start uploading your artwork today. Artists keep 70% of every sale.
+                Yes! Sign up as a seller and start uploading your artwork today.
               </p>
             </CardContent>
           </Card>
@@ -193,11 +193,11 @@ const ContactPage = () => {
 
           <Card className="border-2">
             <CardHeader>
-              <CardTitle className="text-base">Do you ship internationally?</CardTitle>
+              <CardTitle className="text-base">Do you ship across India?</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location.
+                Yes, we ship to all locations across India. Shipping costs and delivery times vary by location.
               </p>
             </CardContent>
           </Card>
