@@ -239,7 +239,7 @@ const ContactPage = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                We offer a 30-day money-back guarantee on all prints. If you&apos;re not satisfied, we&apos;ll make it right.
+                We offer a 30 day money back guarantee on all prints. If you&apos;re not satisfied, we&apos;ll make it right.
               </p>
             </CardContent>
           </Card>
