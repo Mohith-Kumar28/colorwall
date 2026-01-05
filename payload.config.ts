@@ -17,6 +17,7 @@ import { multiTenantPlugin } from "@payloadcms/plugin-multi-tenant";
 import type { Config } from "./payload-types";
 import { Orders } from "./collections/Orders";
 import { Reviews } from "./collections/Reviews";
+import { ContactSubmissions } from "./collections/ContactSubmissions";
 import { isSuperAdmin } from "./lib/access";
 
 const filename = fileURLToPath(import.meta.url);
@@ -56,6 +57,7 @@ export default buildConfig({
     Tenants,
     Orders,
     Reviews,
+    ContactSubmissions,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

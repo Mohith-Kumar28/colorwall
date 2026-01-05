@@ -1,15 +1,52 @@
+"use client";
+
+import { useState } from "react";
+import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MailIcon, MapPinIcon, ClockIcon } from "lucide-react";
-
-export const metadata = {
-  title: "Contact | Colorwall",
-  description: "Get in touch with the Colorwall team. We're here to help with any questions about art, orders, or becoming an artist.",
-};
+import { MailIcon, MapPinIcon, ClockIcon, Loader2Icon } from "lucide-react";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       {/* Hero Section */}
@@ -91,7 +128,7 @@ const ContactPage = () => {
             </p>
           </CardHeader>
           <CardContent>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
@@ -101,6 +138,8 @@ const ContactPage = () => {
                     id="name" 
                     placeholder="Your name"
                     className="border-2"
+                    value={formData.name}
+                    onChange={handleChange}
                     required 
                   />
                 </div>
@@ -113,6 +152,8 @@ const ContactPage = () => {
                     type="email" 
                     placeholder="you@example.com"
                     className="border-2"
+                    value={formData.email}
+                    onChange={handleChange}
                     required 
                   />
                 </div>
@@ -126,6 +167,8 @@ const ContactPage = () => {
                   id="subject" 
                   placeholder="How can we help?"
                   className="border-2"
+                  value={formData.subject}
+                  onChange={handleChange}
                   required 
                 />
               </div>
@@ -139,6 +182,8 @@ const ContactPage = () => {
                   placeholder="Tell us more about your inquiry..."
                   className="border-2"
                   rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
                   required 
                 />
               </div>
@@ -146,8 +191,16 @@ const ContactPage = () => {
               <Button 
                 type="submit" 
                 className="w-full bg-pink-400 border-2 border-black text-black hover:bg-pink-500"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2Icon className="size-4 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </form>
           </CardContent>
