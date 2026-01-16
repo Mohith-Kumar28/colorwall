@@ -29,8 +29,15 @@ export const MIN_WIDTH = currentPreset.width;
 export const MIN_HEIGHT = currentPreset.height;
 
 /**
- * Hook to validate image dimensions before saving
- * Ensures uploaded images meet print quality requirements
+ * Maximum file size for uploads (in bytes)
+ * 45 MB = 45 * 1024 * 1024 bytes
+ */
+export const MAX_FILE_SIZE_MB = 45;
+export const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+/**
+ * Hook to validate image dimensions and file size before saving
+ * Ensures uploaded images meet print quality requirements and size limits
  */
 const validateImageDimensions: CollectionBeforeValidateHook = async ({
   data,
@@ -39,6 +46,17 @@ const validateImageDimensions: CollectionBeforeValidateHook = async ({
   // Only validate on create operations (new uploads)
   if (operation !== "create") {
     return data;
+  }
+
+  // Validate file size
+  const fileSize = data?.filesize as number | undefined;
+  if (fileSize && fileSize > MAX_FILE_SIZE_BYTES) {
+    const fileSizeMB = (fileSize / (1024 * 1024)).toFixed(2);
+    const errorMessage = `File size (${fileSizeMB} MB) exceeds the maximum allowed size of ${MAX_FILE_SIZE_MB} MB. Please compress your image and try again.`;
+
+    const error = new APIError(errorMessage, 400);
+    error.isPublic = true;
+    throw error;
   }
 
   const width = data?.width as number | undefined;

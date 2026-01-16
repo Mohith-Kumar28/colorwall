@@ -1,7 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 
 export const config = {
-  matcher: ["/((?!api/|_next/|_static/|_vercel|media/|[\\w-]+\\.\\w+).*)"],
+  // Exclude: api/, _next/, _static/, _vercel, media/, admin/, static files
+  matcher: ["/((?!api/|_next/|_static/|_vercel|media/|admin/|[\\w-]+\\.\\w+).*)"],
 };
 
 export default async function middleware(req: NextRequest) {
