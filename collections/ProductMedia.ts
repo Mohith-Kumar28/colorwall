@@ -30,9 +30,9 @@ export const MIN_HEIGHT = currentPreset.height;
 
 /**
  * Maximum file size for uploads (in bytes)
- * 45 MB = 45 * 1024 * 1024 bytes
+ * 4 MB = 4 * 1024 * 1024 bytes
  */
-export const MAX_FILE_SIZE_MB = 45;
+export const MAX_FILE_SIZE_MB = 4;
 export const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 
 /**
