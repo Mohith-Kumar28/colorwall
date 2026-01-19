@@ -35,6 +35,24 @@ export const authRouter = createTRPCRouter({
         });
       }
 
+      // Also check if a tenant with this slug already exists
+      const existingTenant = await ctx.payload.find({
+        collection: "tenants",
+        limit: 1,
+        where: {
+          slug: {
+            equals: input.username,
+          },
+        },
+      });
+
+      if (existingTenant.docs[0]) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "This username is already taken",
+        });
+      }
+
       // Stripe account creation is optional
       let stripeAccountId: string | undefined;
       if (isStripeEnabled() && stripe) {
@@ -47,24 +65,37 @@ export const authRouter = createTRPCRouter({
         }
       }
 
-      const tenant = await ctx.payload.create({
-        collection: "tenants",
-        data: {
-          name: input.username,
-          slug: input.username,
-          stripeAccountId: stripeAccountId || "pending", // Placeholder when Stripe is disabled
-        },
-      });
+      try {
+        const tenant = await ctx.payload.create({
+          collection: "tenants",
+          data: {
+            name: input.username,
+            slug: input.username,
+            stripeAccountId: stripeAccountId || "pending", // Placeholder when Stripe is disabled
+          },
+        });
 
-      await ctx.payload.create({
-        collection: "users",
-        data: {
-          email: input.email,
-          password: input.password, // This will be hashed
-          username: input.username,
-          tenants: [{ tenant: tenant.id }],
-        },
-      });
+        await ctx.payload.create({
+          collection: "users",
+          data: {
+            email: input.email,
+            password: input.password, // This will be hashed
+            username: input.username,
+            tenants: [{ tenant: tenant.id }],
+          },
+        });
+      } catch (error) {
+        console.error("Registration error:", error);
+        if (error instanceof Error) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: error.message,
+            cause: error,
+          });
+        }
+        throw error;
+      }
+
 
       const data = await ctx.payload.login({
         collection: "users",

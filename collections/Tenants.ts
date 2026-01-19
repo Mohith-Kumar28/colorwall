@@ -36,6 +36,19 @@ export const Tenants: CollectionConfig = {
       access: {
         update: ({ req }) => isSuperAdmin(req.user),
       },
+      validate: (value: string | null | undefined) => {
+        if (!value) return "Slug is required";
+        if (value.length < 3) return "Slug must be at least 3 characters long";
+        if (value.length > 63) return "Slug must be at most 63 characters long";
+        if (value.includes("--")) {
+          return "Slug cannot contain consecutive hyphens.";
+        }
+        // The regex requires at least 2 chars: start [a-z0-9], middle [a-z0-9-]*, end [a-z0-9]
+        if (!/^[a-z0-9][a-z0-9-]*[a-z0-9]$/.test(value)) {
+          return "Slug can only contain lowercase letters, numbers, and hyphens. It must start and end with a letter or number.";
+        }
+        return true;
+      },
     },
     {
       name: "image",
